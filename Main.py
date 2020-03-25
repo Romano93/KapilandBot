@@ -48,6 +48,7 @@ for link in links:
     browser.execute_script("document.getElementById('TABLE_PRODUKT_PRODUZIEREN_MYPRODUCTTABLE_TRID_91').style.display='';") # disbaled for some reasons
     browser.implicitly_wait(1)
     dauer = browser.find_element_by_id('dauer_91').get_attribute('value')
+    browser.find_element_by_name('a_bestellen[]').clear()
     browser.find_element_by_name('a_bestellen[]').send_keys(str((80 * 60 * 60)/float(dauer)))
     browser.find_element_by_class_name('send').click()
 browser.get(lager)
